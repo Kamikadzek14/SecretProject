@@ -12,4 +12,4 @@ def potential_energy(mass1, mass2, distance):
     return (G*mass1*mass2)/distance
 
 
-def
+def conservation_of_energy(kinetic_1, potential_1, kinetic_2, potential_2):
