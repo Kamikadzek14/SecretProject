@@ -13,7 +13,7 @@ print("Secret_Project_X")
 
 pygame.init()
 
-size = width, height = 300, 300
+size = width, height = 1400, 700
 speed = [2, 3]
 speed2 = [1,1]
 black = 0, 0, 0
@@ -47,16 +47,16 @@ while 1:
         speed2[1] = -speed2[1]
     clock.tick(60)
 # Collision with themselves
-    collision_tollerance = 30
-    if ball1rect.colliderect(ball2rect):
-        if abs(ball2rect.top - ball1rect.bottom) < collision_tollerance:
-            speed[1] = -speed[1]
-        if abs(ball2rect.bottom - ball1rect.top) < collision_tollerance:
-            speed[1] = -speed[1]
-        if abs(ball2rect.right - ball1rect.left) < collision_tollerance:
-            speed[0] = -speed[0]
-        if abs(ball2rect.left - ball1rect.right) < collision_tollerance:
-            speed[0] = -speed[0]
+#     collision_tollerance = 30
+#     if ball1rect.colliderect(ball2rect):
+#         if abs(ball2rect.top - ball1rect.bottom) < collision_tollerance:
+#             speed[1] = -speed[1]
+#         if abs(ball2rect.bottom - ball1rect.top) < collision_tollerance:
+#             speed[1] = -speed[1]
+#         if abs(ball2rect.right - ball1rect.left) < collision_tollerance:
+#             speed[0] = -speed[0]
+#         if abs(ball2rect.left - ball1rect.right) < collision_tollerance:
+#             speed[0] = -speed[0]
 
     # if ball2rect.colliderect(ball1rect):
     #     if abs(ball1rect.top - ball2rect.bottom) < collision_tollerance:
@@ -73,7 +73,7 @@ while 1:
     screen.fill(black)
     screen.blit(ball1, ball1rect)
     screen.blit(ball2, ball2rect)
-    screen.blit(ball2, ball2rect , to_pygame((450,100)))
+    #screen.blit(ball2, ball2rect , to_pygame((450,100)))
 
     pygame.display.flip()
 
