@@ -8,7 +8,7 @@ pygame.init()
 
 size = width, height = 1400, 200
 
-speed = [3, 0.0]
+speed = [2, 0]
 #list(np.float_(speed))   - will not work because the move function does not support float  :(
 speed2 = [-3,0]
 
@@ -25,20 +25,24 @@ SmallBallrect = SmallBall.get_rect()
 SmallBallrect.center = 1300, 100
 
 
-# Parameters of balls
-massBigBall =int(input("Insert mass of BigBall:"))
-massSmallBall =int(input("Insert mass of SmallBall:"))
+# # Parameters of balls
+# massBigBall =int(input("Insert mass of BigBall:"))
+# massSmallBall =int(input("Insert mass of SmallBall:"))
+#
+#
+# while massBigBall < massSmallBall:
+#     print("massBigBall can not be smaller than massSmallBall\nTry Again")
+#     massBigBall = int(input("Insert mass of BigBall:"))
+#     massSmallBall = int(input("Insert mass of SmallBall:"))
+#     if massBigBall > massSmallBall:
+#         break
 
+# m1 = massBigBall
+# m2 = massSmallBall
 
-while massBigBall < massSmallBall:
-    print("massBigBall can not be smaller than massSmallBall\nTry Again")
-    massBigBall = int(input("Insert mass of BigBall:"))
-    massSmallBall = int(input("Insert mass of SmallBall:"))
-    if massBigBall > massSmallBall:
-        break
+m1 = 7000000000
+m2 = 1000
 
-m1 = massBigBall
-m2 = massSmallBall
 
 
 clock = pygame.time.Clock()
@@ -63,15 +67,15 @@ while 1:
 
     # Collision with themselves
 
-    collision_tollerance = 40
+    collision_tollerance = 400
 
     if BigBallrect.colliderect(SmallBallrect):
         if abs(SmallBallrect.left - BigBallrect.right) < collision_tollerance:
-            speed[0] = (speed[0] * (m1 - m2) + 2 * m2 * speed2[0]) / (m1 + m2)
+            speed[0] = ((speed[0] * (m1 - m2) + 2 * m2 * speed2[0]) / (m1 + m2))
 
     if SmallBallrect.colliderect(BigBallrect):
         if abs(BigBallrect.right - SmallBallrect.left) < collision_tollerance:
-            speed2[0] = (speed2[0] * (m2 - m1) + 2 * m1 * speed[0]) / (m1 + m2)
+            speed2[0] = np.ceil((speed2[0] * (m2 - m1) + 2 * m1 * speed[0]) / (m1 + m2))
 
 
 
