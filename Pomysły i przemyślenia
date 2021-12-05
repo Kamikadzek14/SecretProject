@@ -2,9 +2,17 @@
 
 
 
+Jest problem z rect.move(speed)    :/
+
+
+
+
+
 Kartka na brudno
 
 1. Opóźnienie symulacji ruchu powodować zmianą w { clock = pygame.time.Clock()  }
+   lub
+   poprzez odejmowania bądź dodawania 1 przy odbiciu od ściany
 
 
 
