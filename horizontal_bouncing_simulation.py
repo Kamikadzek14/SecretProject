@@ -10,7 +10,7 @@ size = width, height = 1400, 200
 
 speed = [2, 0]
 #list(np.float_(speed))   - will not work because the move function does not support float  :(
-speed2 = [-3,0]
+speed2 = [-2,0]
 
 black = 0, 0, 0
 
@@ -40,7 +40,7 @@ SmallBallrect.center = 1300, 100
 # m1 = massBigBall
 # m2 = massSmallBall
 
-m1 = 7000000000
+m1 = 1000
 m2 = 1000
 
 
