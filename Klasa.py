@@ -1,9 +1,4 @@
-import sys
-import os
 import time
-
-import numpy
-import matplotlib
 import pygame
 
 
@@ -28,8 +23,6 @@ class Object:
     mass = 0
     radius = 0
     width = radius
-
-
     distance = 0
     # GRAPHICAL PROPERTIES
     pos_x = 0
@@ -56,8 +49,8 @@ object1.radius = 15
 object2.radius = 30
 object1.width = object1.radius
 object2.width = object2.radius
-object1.pos_x = 50
-object1.pos_y = 50
+object1.pos_x = 200
+object1.pos_y = 100
 object2.pos_x = 400
 object2.pos_y = 400
 
@@ -75,7 +68,7 @@ object3.pos_x = object1.pos_x
 object3.chosen_color = Color.yellow
 object3.radius = object1.radius
 object3.width = object1.width
-object3.position = (10*object3.pos_x, 2*object1.pos_y)
+object3.position = (2.5*object3.pos_x, 2*object1.pos_y)
 # WYŚWIETLENIE KLAS
 
 show_object(screen, object1.chosen_color, object1.position, object1.radius, object1.width)
