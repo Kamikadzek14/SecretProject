@@ -1,0 +1,102 @@
+import sys
+import os
+import numpy as np
+import matplotlib
+import pygame
+
+pygame.init()
+
+size = width, height = 400, 400
+
+speed = [2, 3]
+#list(np.float_(speed))   - will not work because the move function does not support float  :(
+speed2 = [-3,2]
+
+black = 0, 0, 0
+
+screen = pygame.display.set_mode(size)
+
+
+BigBall = pygame.image.load(os.path.join('images', 'BigBall.png'))
+SmallBall = pygame.image.load(os.path.join('images', 'SmallBall.png'))
+BigBallrect = BigBall.get_rect()
+BigBallrect.center = 32,100
+SmallBallrect = SmallBall.get_rect()
+SmallBallrect.center = 300, 300
+
+
+# # Parameters of balls
+# massBigBall =int(input("Insert mass of BigBall:"))
+# massSmallBall =int(input("Insert mass of SmallBall:"))
+#
+#
+# while massBigBall < massSmallBall:
+#     print("massBigBall can not be smaller than massSmallBall\nTry Again")
+#     massBigBall = int(input("Insert mass of BigBall:"))
+#     massSmallBall = int(input("Insert mass of SmallBall:"))
+#     if massBigBall > massSmallBall:
+#         break
+
+# m1 = massBigBall
+# m2 = massSmallBall
+
+m1 = 100000
+m2 = 100
+
+
+
+clock = pygame.time.Clock()
+
+while 1:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: sys.exit()
+    clock.tick(20)
+
+
+
+
+
+    # Collision with walls
+    BigBallrect = BigBallrect.move(speed)
+    if BigBallrect.left < 0 or BigBallrect.right + 64 > width:
+        speed[0] = -speed[0]
+    if BigBallrect.bottom < 0 or BigBallrect.top + 64> height:
+        speed[1] = -speed[1]
+
+    SmallBallrect = SmallBallrect.move(speed2)
+    if SmallBallrect.left < 0 or SmallBallrect.right + 16 > width:
+        speed2[0] = -speed2[0]
+    if SmallBallrect.bottom < 0 or SmallBallrect.top + 16> height:
+        speed2[1] = -speed2[1]
+
+    # Collision with themselves x axis
+
+    collision_tollerance = 40
+
+    if BigBallrect.colliderect(SmallBallrect):
+        if abs(SmallBallrect.left - BigBallrect.right) < collision_tollerance:
+            speed[0] = np.floor((speed[0] * (m1 - m2) + 2 * m2 * speed2[0]) / (m1 + m2))
+        if abs(SmallBallrect.right - BigBallrect.left) < collision_tollerance:
+            speed[0] = np.floor((speed[0] * (m1 - m2) + 2 * m2 * speed2[0]) / (m1 + m2))
+        if abs(SmallBallrect.top - BigBallrect.bottom) < collision_tollerance:
+            speed[1] = np.floor((speed[1] * (m1 - m2) + 2 * m2 * speed2[1]) / (m1 + m2))
+        if abs(SmallBallrect.bottom - BigBallrect.top) < collision_tollerance:
+            speed[1] = np.floor((speed[1] * (m1 - m2) + 2 * m2 * speed2[1]) / (m1 + m2))
+
+    if SmallBallrect.colliderect(BigBallrect):
+        if abs(BigBallrect.right - SmallBallrect.left) < collision_tollerance:
+            speed2[0] = np.floor((speed2[0] * (m2 - m1) + 2 * m1 * speed[0]) / (m1 + m2))
+        if abs(BigBallrect.left - SmallBallrect.right) < collision_tollerance:
+            speed2[0] = np.floor((speed2[0] * (m2 - m1) + 2 * m1 * speed[0]) / (m1 + m2))
+        if abs(BigBallrect.top - SmallBallrect.bottom) < collision_tollerance:
+            speed2[1] = np.floor((speed2[1] * (m2 - m1) + 2 * m1 * speed[1]) / (m1 + m2))
+        if abs(BigBallrect.bottom - SmallBallrect.top) < collision_tollerance:
+            speed2[1] = np.floor((speed2[1] * (m2 - m1) + 2 * m1 * speed[1]) / (m1 + m2))
+
+
+
+    screen.fill(black)
+    screen.blit(BigBall, BigBallrect)
+    screen.blit(SmallBall, SmallBallrect,)
+
+    pygame.display.flip()
