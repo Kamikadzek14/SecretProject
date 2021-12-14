@@ -3,12 +3,14 @@ import os
 import numpy as np
 import matplotlib
 import pygame
+from time import sleep
+
 
 pygame.init()
 
 size = width, height = 1400, 200
 
-speed = [2, 0]
+speed = [10, 0]
 #list(np.float_(speed))   - will not work because the move function does not support float  :(
 speed2 = [-2,0]
 
@@ -40,7 +42,7 @@ SmallBallrect.center = 1300, 100
 # m1 = massBigBall
 # m2 = massSmallBall
 
-m1 = 1000
+m1 = 10000
 m2 = 1000
 
 
@@ -51,7 +53,7 @@ while 1:
     for event in pygame.event.get():
         if event.type == pygame.QUIT: sys.exit()
     clock.tick(60)
-
+    sleep(0.001)
 
 
 
