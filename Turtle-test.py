@@ -14,7 +14,7 @@ for _ in range(20):
     planets.append(turtle.Turtle())
 
 colors = ["red", "yellow", "green", "blue","white"]
-shapes = ["circle", "square"]
+shapes = ["circle"]
 
 for planet in planets:
     planet.shape(random.choice(shapes))
@@ -33,7 +33,7 @@ gravity = 0.1
 
 while True:
     wn.update()
-    sleep(0.0001)
+    sleep(0.015)
 
     for planet in planets:
         planet.rt(planet.da)
@@ -60,7 +60,7 @@ while True:
     for i in range(0, len(planets)):
         for j in range(i+1, len(planets)):
             # Check collision
-            if planets[i].distance(planets[j]) < 20:
+            if planets[i].distance(planets[j]) < 30:
                 temp_dx = planets[i].dx
                 temp_dy = planets[i].dy
 
