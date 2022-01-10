@@ -4,8 +4,12 @@ import random
 
 def _create_ball(self) -> None:
 
-    mass = 1
-    radius = 25
+ball_image = pygame.image.load("Graphic\golf_ball.png")
+
+
+
+    mass = 10
+    radius = 40
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
     x = random.randint(100, 1400)
