@@ -1,12 +1,10 @@
 import pymunk
 import random
-
+import pygame
 
 def _create_ball(self) -> None:
 
-ball_image = pygame.image.load("Graphic\golf_ball.png")
-
-
+    ball_image = pygame.image.load("Graphic\golf_ball.png")
 
     mass = 10
     radius = 40
@@ -20,3 +18,5 @@ ball_image = pygame.image.load("Graphic\golf_ball.png")
     shape.friction = 0.9
     self._space.add(body, shape)
     self._balls.append(shape)
+
+    pygame.Surface.blit(ball_image, [x,y])
