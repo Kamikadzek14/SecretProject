@@ -14,9 +14,11 @@ def _create_ball(self) -> None:
     y = random.randint(50, 700)
     body.position = x,y
     shape = pymunk.Circle(body, radius, (0, 0))
+    shape.color = (255, 0, 0, 255)
     shape.elasticity = 0.6
     shape.friction = 0.9
     self._space.add(body, shape)
     self._balls.append(shape)
+    
 
-    pygame.Surface.blit(ball_image, [x,y])
+    #pygame.Surface.blit(, ball_image, x, y)
