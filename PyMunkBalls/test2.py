@@ -36,7 +36,7 @@ class BouncyBalls(object):
 
         # pygame
         pygame.init()
-        self._screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+        self._screen = pygame.display.set_mode((600, 600))
         self._clock = pygame.time.Clock()
 
         self._draw_options = pymunk.pygame_util.DrawOptions(self._screen)
@@ -68,7 +68,7 @@ class BouncyBalls(object):
             self._draw_objects()
             pygame.display.flip()
             # Delay fixed time between frames
-            self._clock.tick(60)
+            self._clock.tick(50)
             pygame.display.set_caption("fps: " + str(self._clock.get_fps()))
 
     def _add_static_scenery(self) -> None:
@@ -78,8 +78,8 @@ class BouncyBalls(object):
         """
         static_body = self._space.static_body
         static_lines = [
-            pymunk.Segment(static_body, (100.0, 800), (1000.0, 800), 0.0),
-            pymunk.Segment(static_body, (407.0, 300), (407.0, 200), 0.0),
+            pymunk.Segment(static_body, (111.0, 600 - 280), (407.0, 600 - 246), 0.0),
+            pymunk.Segment(static_body, (407.0, 600 - 246), (407.0, 600 - 343), 0.0),
         ]
         for line in static_lines:
             line.elasticity = 0.95
@@ -109,7 +109,7 @@ class BouncyBalls(object):
             self._create_ball()
             self._ticks_to_next_ball = 100
         # Remove balls that fall below 100 vertically
-        balls_to_remove = [ball for ball in self._balls if ball.body.position.y > 1000]
+        balls_to_remove = [ball for ball in self._balls if ball.body.position.y > 500]
         for ball in balls_to_remove:
             self._space.remove(ball, ball.body)
             self._balls.remove(ball)
