@@ -39,7 +39,7 @@ def pause():
                     pygame.quit()
                     quit()
 
-        pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h)).fill(pygame.Color("blue"))
+        #pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h)).fill(pygame.Color("red"))
 
 
         font = pygame.font.Font('freesansbold.ttf', 70)
@@ -48,8 +48,9 @@ def pause():
         textRect = text.get_rect()
 
         textRect.center = (pygame.display.Info().current_w // 2, pygame.display.Info().current_h // 4)
-
+        pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h)).fill(pygame.Color("red"))
         pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h)).blit(text, textRect)
+
         pygame.display.flip()
 
 
