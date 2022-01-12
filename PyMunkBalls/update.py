@@ -3,7 +3,7 @@ def _update_balls(self) -> None:
     self._ticks_to_next_ball -= 1
     if self._ticks_to_next_ball <= 0:
         self._create_ball()
-        self._ticks_to_next_ball = 50
+        self._ticks_to_next_ball = 20
 
 
     # Remove balls that fall below 1000 vertically

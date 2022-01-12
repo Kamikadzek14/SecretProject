@@ -1,4 +1,6 @@
 import pygame
+import random
+
 
 def run(self) -> None:
 
@@ -8,7 +10,7 @@ def run(self) -> None:
         # Progress time forward
         for x in range(self._physics_steps_per_frame):
             self._space.step(self._dt)
-
+        #c = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
         self._process_events()
         self._update_balls()
         self._clear_screen()
