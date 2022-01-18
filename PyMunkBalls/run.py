@@ -1,9 +1,8 @@
 import pygame
-import random
+
 
 
 def run(self) -> None:
-
 
     # Main loop
     while self._running:
@@ -17,5 +16,5 @@ def run(self) -> None:
         self._draw_objects()
         pygame.display.flip()
         # Delay fixed time between frames
-        self._clock.tick(60)
+        self._clock.tick(100)
     #  ?  pygame.display.set_caption("Fps: " + str(self._clock.get_fps()))
