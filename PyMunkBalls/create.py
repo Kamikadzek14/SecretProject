@@ -2,6 +2,7 @@ import pymunk
 import random
 import pygame
 
+
 def _create_ball(self) -> None:
 
     ball_image = pygame.image.load("Graphic\golf_ball.png")
@@ -16,8 +17,8 @@ def _create_ball(self) -> None:
     body.position = x,y
     shape = pymunk.Circle(body, radius, (0, 0))
     shape.color = c
-    shape.elasticity = 0.6
-    shape.friction = 0.9
+    shape.elasticity = 0.99
+    shape.friction = 0.4
     self._space.add(body, shape)
     self._balls.append(shape)
     

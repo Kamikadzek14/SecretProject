@@ -19,6 +19,6 @@ def _add_static_scenery(self) -> None:
     ]
 
     for line in static_lines:
-        line.elasticity = 0.95
-        line.friction = 0.9
+        line.elasticity = 0.9
+        line.friction = 0.3
     self._space.add(*static_lines)

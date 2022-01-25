@@ -1,8 +1,7 @@
 import pygame
 
 
-
-def run(self) -> None:
+def run(self, globe: int) -> None:
 
     # Main loop
     while self._running:
@@ -11,8 +10,8 @@ def run(self) -> None:
             self._space.step(self._dt)
         #c = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
         self._process_events()
-        self._update_balls()
-        self._clear_screen()
+        self._update_balls(self._balls)
+        self._clear_screen(globe)
         self._draw_objects()
         pygame.display.flip()
         # Delay fixed time between frames

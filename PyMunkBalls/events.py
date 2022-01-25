@@ -36,9 +36,8 @@ def pause():
 
         pygame.display.set_mode((pygame.display.Info().current_w, pygame.display.Info().current_h)).fill(pygame.Color("blue"))
 
-
         font = pygame.font.Font('freesansbold.ttf', 70)
-        text = font.render('PAUSED', True,(0, 255, 0), (255,69,0))
+        text = font.render('PAUSED', True, (0, 255, 0), (255, 69, 0))
 
         textRect = text.get_rect()
 
